@@ -1,0 +1,47 @@
+.sec1{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec1 p{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(254, 101, 77);
+    color: white;
+    font-size: 2em;
+    width: 600px;
+    height: 50px;
+    text-align: center;
+    padding-top:5px;
+}
+
+.sec1 h6{
+    color: red;
+    text-align: center;
+}
+
+.sec1 form{
+    display: flex;
+    flex-direction: column;
+}
+
+.sec1 form .inputs{
+    margin-top:30px ;
+    width: 500px;
+    border: none;
+    border-bottom: 1.3px solid rgba(123, 123, 123, 0.336);
+}
+
+.sec1 form .submit{
+    border: none;
+    width: 30%;
+    margin-left: 200px;
+    margin-top: 50px;
+    padding: 10px 30px;
+    color: rgba(138, 0, 62, 0.763) ;
+    background-color: white;
+    border:1px solid rgba(138, 0, 62, 0.753) ;
+    border-radius: 3px;
+}

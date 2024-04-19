@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #stopwatch {
+      font-family: 'Arial', sans-serif;
+      font-size: 2em;
+    }
+
+    #controls {
+      margin-top: 20px;
+    }
+  </style>
+  <title>Simple Stopwatch</title>
+</head>
+
+
+
+<body>
+  <!--! validationForm -->
+  <section class="sec1">
+        <p>Contact Us</p>
+        <h6 id="Error"></h6>
+        <form onsubmit="formValidate()" novalidate>
+            <input class="inputs" type="text" name="name" value="" placeholder="Username" id="Username">
+            <input class="inputs" type="email" name="email" value="" placeholder="E-mail" id="Email">
+            <input class="inputs" type="text" name="phone" value="" placeholder="Phone" id="Phone">
+            <input class="submit" type="submit" name="Submit" value="Submit">
+        </form>
+    </section>
+    
+    <script src="main.js"></script>
+
+
+
+
+
+
+
+
+  <!--! stopWatch -->
+  <div id="stopwatch">00:00:00</div>
+  <div id="controls">
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="stopStopwatch()">Stop</button>
+    <button onclick="resetStopwatch()">Reset</button>
+  </div>
+
+  <script>
+    let startTime;
+    let running = false;
+
+    function startStopwatch() {
+      if (!running) {
+        startTime = new Date().getTime();
+        running = true;
+        updateStopwatch();
+      }
+    }
+
+    function stopStopwatch() {
+      running = false;
+    }
+
+    function resetStopwatch() {
+      running = false;
+      document.getElementById('stopwatch').innerText = '00:00:00';
+    }
+
+    function updateStopwatch() {
+      if (running) {
+        const currentTime = new Date().getTime();
+        const elapsedMilliseconds = currentTime - startTime;
+
+        const hours = Math.floor(elapsedMilliseconds / 3600000);
+        const minutes = Math.floor((elapsedMilliseconds % 3600000) / 60000);
+        const seconds = Math.floor((elapsedMilliseconds % 60000) / 1000);
+
+        const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        document.getElementById('stopwatch').innerText = timeString;
+
+        setTimeout(updateStopwatch, 1000);
+      }
+    }
+  </script>
+
+
+
+
+
+
+
+
+ 
+
+</body>
+
+</html>
